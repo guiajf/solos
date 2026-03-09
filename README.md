@@ -706,6 +706,8 @@ plt.show()
 
 ```
 
+![png](mapa_solos.png)
+
 **Considerações finais**
 
 Todo o conhecimento acumulado foi insuficiente para estimular políticas públicas capazes de evitar a tragédia provocada por fortes chuvas em fevereiro de 2026, em Juiz de Fora, que vitimou 65 pessoas e desalojou mais de seis mil moradores.
