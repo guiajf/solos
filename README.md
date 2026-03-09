@@ -477,7 +477,7 @@ plt.show()
     
 
 
-### Criamos os mapas estático e interativo
+### Criamos o mapa estático
 
 
 ```python
@@ -500,7 +500,7 @@ def validate_geometry(geom):
     return geom
 
 # Aplicar correção às geometrias
-gdf_sorted['geometry'] = gdf_sorted['geometry'].apply(validate_geometry)
+gdf_sorted['geometry'] = gdf['geometry'].apply(validate_geometry)
 
 # Remover geometrias que não puderam ser corrigidas
 gdf_sorted = gdf_sorted[gdf_sorted['geometry'].notnull()]
@@ -529,127 +529,7 @@ else:
     center_lat = (bounds[1] + bounds[3]) / 2
     center_lon = (bounds[0] + bounds[2]) / 2
     
-# 3. CRIAR MAPA COM FOLIUM
 
-# Criar mapa base
-m = folium.Map(
-    location=[center_lat, center_lon],
-    zoom_start=10,
-    tiles='CartoDB positron'  # Tile mais leve
-)
-
-# 4. ADICIONAR CAMADAS POR TIPO DE SOLO
-
-# Cores para cada tipo de solo (códigos TIPO)
-# Usando uma paleta de cores para solos (tons terrosos e naturais)
-tipo_cores = {
-    'CHd4': '#8B4513',      # Marrom (SaddleBrown) - Cambissolos Húmicos
-    'CXbd33': '#CD853F',    # Marrom claro (Peru) - Cambissolos Háplicos
-    'LAd4': '#DAA520',      # Dourado (GoldenRod) - Latossolos Amarelos
-    'LVAd58': '#B22222',    # Vermelho tijolo (FireBrick) - Latossolos V-A
-    'LVAd59': '#A52A2A',    # Marrom avermelhado (Brown) - Latossolos V-A
-    'LVAd68': '#8B0000',    # Vermelho escuro (DarkRed) - Latossolos V-A
-    'LVAd73': '#800000',    # Marrom vinho (Maroon) - Latossolos V-A
-    'default': '#696969'    # Cinza escuro (DimGray) - para outros tipos
-}
-
-# Criar FeatureGroups para cada tipo de solo
-grupos = {}
-for tipo in gdf_sorted['TIPO'].unique():
-    if tipo in tipo_cores:
-        grupos[tipo] = folium.FeatureGroup(name=f"{tipo} - {gdf_sorted[gdf_sorted['TIPO']==tipo].iloc[0]['CLASSE']}")
-
-# Adicionar geometrias
-for idx, row in gdf_sorted.iterrows():
-    try:
-        tipo = row['TIPO']
-        classe = row['CLASSE']
-        cor = tipo_cores.get(tipo, tipo_cores['default'])
-        
-        # Criar popup com informações do solo
-        popup_text = f"""
-        <div style="font-family: Arial; min-width: 200px;">
-            <b style="font-size: 14px;">{classe}</b><br>
-            <hr style="margin: 5px 0;">
-            <b>Código:</b> {tipo}<br>
-            <b>Área:</b> {row['SHAPE_Area']:,.2f} m² ({row['AREA_KM2']:.4f} km²)<br>
-            <b>Perímetro:</b> {row['SHAPE_Leng']:,.2f} m ({row['PERIM_KM']:.2f} km)
-        </div>
-        """
-        
-        # Adicionar ao grupo apropriado
-        folium.GeoJson(
-            row.geometry,
-            style_function=lambda x, cor=cor: {
-                'fillColor': cor,
-                'color': 'black',
-                'weight': 0.8,
-                'fillOpacity': 0.7
-            },
-            popup=folium.Popup(popup_text, max_width=300),
-            tooltip=f"{tipo} - {classe}"
-        ).add_to(grupos.get(tipo, m))
-        
-    except Exception as e:
-        print(f"Aviso: Não foi possível adicionar feição {idx}: {e}")
-
-# Adicionar grupos ao mapa
-for grupo in grupos.values():
-    grupo.add_to(m)
-
-
-
-# Adicionar plugin de tela cheia
-fullscreen_plugin = Fullscreen(
-    position='bottomleft',
-    title='Expandir tela',
-    title_cancel='Sair da tela cheia',
-    force_separate_button=True
-).add_to(m)
-
-# 5. ADICIONAR CONTROLES
-
-# Adicionar controle de camadas
-folium.LayerControl(collapsed=False).add_to(m)
-
-# Adicionar escala
-plugins.MousePosition().add_to(m)
-
-# Adicionar minimapa
-minimap = plugins.MiniMap()
-m.add_child(minimap)
-
-# Adicionar legenda HTML para solos
-legend_html = """
-<div style="position: fixed; bottom: 50px; left: 50px; z-index: 1000; background-color: white; 
-     padding: 15px; border: 2px solid #8B4513; border-radius: 5px; font-family: Arial; font-size: 13px;
-     box-shadow: 3px 3px 5px rgba(0,0,0,0.3);">
-    <b style="font-size: 15px; color: #4A3728;">LEGENDA - CLASSES DE SOLO</b><br>
-    <hr style="margin: 5px 0 10px 0;">
-    <div style="display: grid; grid-template-columns: 20px 1fr; gap: 5px;">
-        <div><i style="background: #8B4513; width: 15px; height: 15px; display: inline-block; border: 1px solid black;"></i></div> <div><b>CHd4</b> - Cambissolos Húmicos</div>
-        <div><i style="background: #CD853F; width: 15px; height: 15px; display: inline-block; border: 1px solid black;"></i></div> <div><b>CXbd33</b> - Cambissolos Háplicos</div>
-        <div><i style="background: #DAA520; width: 15px; height: 15px; display: inline-block; border: 1px solid black;"></i></div> <div><b>LAd4</b> - Latossolos Amarelos</div>
-        <div><i style="background: #B22222; width: 15px; height: 15px; display: inline-block; border: 1px solid black;"></i></div> <div><b>LVAd58</b> - Latossolos Vermelho-Amarelos</div>
-        <div><i style="background: #A52A2A; width: 15px; height: 15px; display: inline-block; border: 1px solid black;"></i></div> <div><b>LVAd59</b> - Latossolos Vermelho-Amarelos</div>
-        <div><i style="background: #8B0000; width: 15px; height: 15px; display: inline-block; border: 1px solid black;"></i></div> <div><b>LVAd68</b> - Latossolos Vermelho-Amarelos</div>
-        <div><i style="background: #800000; width: 15px; height: 15px; display: inline-block; border: 1px solid black;"></i></div> <div><b>LVAd73</b> - Latossolos Vermelho-Amarelos</div>
-    </div>
-    <hr style="margin: 10px 0 5px 0;">
-    <div style="text-align: center; font-size: 11px; color: #666;">
-        Fonte: Sistema Brasileiro de Classificação de Solos (SiBCS)<br>
-        Embrapa Solos
-    </div>
-</div>
-"""
-
-m.get_root().html.add_child(folium.Element(legend_html))
-
-# 6. SALVAR MAPA
-output_file = "mapa_solos_jf.html"
-m.save(output_file)
-
-print(f"Mapa salvo como: {output_file}")
 
 # 7. VISUALIZAÇÃO ESTÁTICA SIMPLIFICADA
 
@@ -657,7 +537,7 @@ print(f"Mapa salvo como: {output_file}")
 fig, ax = plt.subplots(1, 1, figsize=(14, 10))
 
 # Plotar mapa corrigido
-gdf.plot(column='TIPO', 
+gdf.plot(column='CODIGO', 
          ax=ax, 
          legend=True,
          cmap='YlOrRd',  # Mapa de cores amarelo-laranja-vermelho (tons de solo)
