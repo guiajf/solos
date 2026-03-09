@@ -246,7 +246,7 @@ gdf.iloc[:5]
 
 
 
-### Tratamento de dados
+### Efetuamos o tratamento de dados
 
 Renomeamos a coluna "UM_SEQ" e adicionamos a coluna "CLASSE", com uso de dicionário de mapeamento código -> classe.
 
@@ -269,7 +269,7 @@ mapeamento_classes = {
 gdf['CLASSE'] = gdf['CODIGO'].map(mapeamento_classes)
 ```
 
-### Analisamos as classes geomorfológicas
+### Analisamos as classes de solo
 
 
 ```python
