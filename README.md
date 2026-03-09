@@ -89,11 +89,8 @@ Um *GeoDataFrame* é uma estrutura de dados tabular da biblioteca **GeoPandas** 
 
 
 ```python
-gdf.iloc[:5]
+gdf.iloc[:4]
 ```
-
-
-
 
 <div>
 <table border="1" class="dataframe">
