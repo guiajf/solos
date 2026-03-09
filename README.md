@@ -89,19 +89,6 @@ gdf.iloc[:5]
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -714,3 +701,5 @@ https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1176834/1/Sistema-
 **Referências**
 
 Eduardo, C. C. (2018). *Cartografia Geomorfológica Comparada: aplicações no município de Juiz de Fora(MG) como subsídio ao planejamento*. Dissertação (Mestrado acadêmico) em Geografia - Universidade Federal de Juiz de Fora, Juiz de Fora, 2018. Disponível em: https://repositorio.ufjf.br/jspui/handle/ufjf/6764?locale=pt_BR
+
+Sistema Brasileiro de Classificação de Solos / Humberto Gonçalves dos Santos … [et al.]. – 6. ed., rev. e ampl. − Brasília, DF : Embrapa, 2025. 393 p. : il. color. ; 16 cm x 23 cm. ISBN 978-65-5467-104-0
