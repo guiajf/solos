@@ -60,13 +60,6 @@ if not os.path.exists(PATH_EXTRACTED):
             zip_ref.extract(file, PATH_EXTRACTED)
 ```
 
-    Descompactando arquivo ZIP...
-    Encontrados 35 arquivos do shapefile
-
-
-    Extraindo: 100%|████████████████████████████████| 35/35 [00:00<00:00, 52.85it/s]
-
-
 ### Carregamos o shapefile
 
 
@@ -89,7 +82,7 @@ Um *GeoDataFrame* é uma estrutura de dados tabular da biblioteca **GeoPandas** 
 
 
 ```python
-gdf
+gdf.iloc[:5]
 ```
 
 
@@ -124,16 +117,16 @@ gdf
       <th>FIRST_PO_2</th>
       <th>FIRST_CL_3</th>
       <th>...</th>
+      <th>Sigla_C5</th>
+      <th>total_porc</th>
+      <th>Unidade_Ma</th>
       <th>Vegetaçã</th>
-      <th>TIPO</th>
+      <th>UM_SEQ</th>
       <th>LEVANTAMEN</th>
       <th>classe</th>
       <th>SHAPE_Leng</th>
       <th>SHAPE_Area</th>
       <th>geometry</th>
-      <th>AREA_KM2</th>
-      <th>PERIM_KM</th>
-      <th>CLASSE</th>
     </tr>
   </thead>
   <tbody>
@@ -150,6 +143,9 @@ gdf
       <td>0</td>
       <td>None</td>
       <td>...</td>
+      <td>None</td>
+      <td>100</td>
+      <td>LVAd12</td>
       <td>Fase Floresta Tropical Subperenifólia</td>
       <td>LVAd68</td>
       <td>1</td>
@@ -157,9 +153,6 @@ gdf
       <td>27146.113453</td>
       <td>1.810461e+07</td>
       <td>POLYGON ((-43.63415 -21.8783, -43.63389 -21.87...</td>
-      <td>18.104611</td>
-      <td>27.146113</td>
-      <td>Latossolos Vermelho-Amarelos</td>
     </tr>
     <tr>
       <th>1</th>
@@ -174,6 +167,9 @@ gdf
       <td>0</td>
       <td>None</td>
       <td>...</td>
+      <td>None</td>
+      <td>100</td>
+      <td>LVAd12</td>
       <td>Fase Floresta Tropical Subperenifólia</td>
       <td>LVAd68</td>
       <td>1</td>
@@ -181,9 +177,6 @@ gdf
       <td>25357.789586</td>
       <td>2.428209e+07</td>
       <td>POLYGON ((-43.50649 -21.85235, -43.50644 -21.8...</td>
-      <td>24.282088</td>
-      <td>25.357790</td>
-      <td>Latossolos Vermelho-Amarelos</td>
     </tr>
     <tr>
       <th>2</th>
@@ -198,6 +191,9 @@ gdf
       <td>0</td>
       <td>None</td>
       <td>...</td>
+      <td>None</td>
+      <td>100</td>
+      <td>LVAd12</td>
       <td>Fase Floresta Tropical Subperenifólia</td>
       <td>LVAd68</td>
       <td>1</td>
@@ -205,9 +201,6 @@ gdf
       <td>45812.482211</td>
       <td>1.607142e+07</td>
       <td>MULTIPOLYGON (((-43.18073 -21.81434, -43.17968...</td>
-      <td>16.071423</td>
-      <td>45.812482</td>
-      <td>Latossolos Vermelho-Amarelos</td>
     </tr>
     <tr>
       <th>3</th>
@@ -222,6 +215,9 @@ gdf
       <td>0</td>
       <td>None</td>
       <td>...</td>
+      <td>None</td>
+      <td>100</td>
+      <td>LAd1</td>
       <td>Fase Floresta Tropical Subperenifólia</td>
       <td>LAd4</td>
       <td>1</td>
@@ -229,9 +225,6 @@ gdf
       <td>90004.539458</td>
       <td>1.216135e+08</td>
       <td>POLYGON ((-43.41985 -21.7242, -43.42078 -21.72...</td>
-      <td>121.613475</td>
-      <td>90.004539</td>
-      <td>Latossolos Amarelos</td>
     </tr>
     <tr>
       <th>4</th>
@@ -246,6 +239,9 @@ gdf
       <td>0</td>
       <td>None</td>
       <td>...</td>
+      <td>None</td>
+      <td>100</td>
+      <td>LAd1</td>
       <td>Fase Floresta Tropical Subperenifólia</td>
       <td>LAd4</td>
       <td>1</td>
@@ -253,504 +249,21 @@ gdf
       <td>105487.029792</td>
       <td>1.206889e+08</td>
       <td>MULTIPOLYGON (((-43.33895 -21.65291, -43.33878...</td>
-      <td>120.688934</td>
-      <td>105.487030</td>
-      <td>Latossolos Amarelos</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>6</td>
-      <td>0.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>None</td>
-      <td>CHd4</td>
-      <td>0</td>
-      <td>3</td>
-      <td>34878.559145</td>
-      <td>8.613532e+05</td>
-      <td>MULTIPOLYGON (((-43.17247 -21.78457, -43.17245...</td>
-      <td>0.861353</td>
-      <td>34.878559</td>
-      <td>Cambissolos Húmicos</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>7</td>
-      <td>39.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LAd4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>1173.080705</td>
-      <td>6.075919e+04</td>
-      <td>POLYGON ((-43.47097 -21.52798, -43.47086 -21.5...</td>
-      <td>0.060759</td>
-      <td>1.173081</td>
-      <td>Latossolos Amarelos</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>8</td>
-      <td>39.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LAd4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>9805.035543</td>
-      <td>3.327967e+06</td>
-      <td>POLYGON ((-43.48909 -21.53185, -43.48894 -21.5...</td>
-      <td>3.327967</td>
-      <td>9.805036</td>
-      <td>Latossolos Amarelos</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>9</td>
-      <td>48.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LVAd59</td>
-      <td>1</td>
-      <td>4</td>
-      <td>277.124327</td>
-      <td>1.721548e+03</td>
-      <td>POLYGON ((-43.56337 -21.48846, -43.56464 -21.4...</td>
-      <td>0.001722</td>
-      <td>0.277124</td>
-      <td>Latossolos Vermelho-Amarelos</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>10</td>
-      <td>48.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LVAd59</td>
-      <td>1</td>
-      <td>4</td>
-      <td>291110.834020</td>
-      <td>7.232797e+08</td>
-      <td>POLYGON ((-43.45241 -21.52139, -43.45223 -21.5...</td>
-      <td>723.279666</td>
-      <td>291.110834</td>
-      <td>Latossolos Vermelho-Amarelos</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>11</td>
-      <td>48.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LVAd59</td>
-      <td>1</td>
-      <td>4</td>
-      <td>163.749829</td>
-      <td>6.854394e+02</td>
-      <td>POLYGON ((-43.68565 -21.63403, -43.68548 -21.6...</td>
-      <td>0.000685</td>
-      <td>0.163750</td>
-      <td>Latossolos Vermelho-Amarelos</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>12</td>
-      <td>48.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LVAd59</td>
-      <td>1</td>
-      <td>4</td>
-      <td>1194.021078</td>
-      <td>1.640655e+04</td>
-      <td>POLYGON ((-43.68437 -21.63986, -43.68434 -21.6...</td>
-      <td>0.016407</td>
-      <td>1.194021</td>
-      <td>Latossolos Vermelho-Amarelos</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>13</td>
-      <td>49.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>CXbd33</td>
-      <td>1</td>
-      <td>5</td>
-      <td>47010.110658</td>
-      <td>4.154106e+07</td>
-      <td>POLYGON ((-43.47923 -21.74054, -43.47569 -21.7...</td>
-      <td>41.541058</td>
-      <td>47.010111</td>
-      <td>Cambissolos Háplicos</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>14</td>
-      <td>49.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>CXbd33</td>
-      <td>1</td>
-      <td>5</td>
-      <td>11873.735161</td>
-      <td>2.988869e+06</td>
-      <td>POLYGON ((-43.63503 -21.81874, -43.63502 -21.8...</td>
-      <td>2.988869</td>
-      <td>11.873735</td>
-      <td>Cambissolos Háplicos</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>15</td>
-      <td>49.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>CXbd33</td>
-      <td>1</td>
-      <td>5</td>
-      <td>154.430934</td>
-      <td>6.805285e+02</td>
-      <td>POLYGON ((-43.66261 -21.84515, -43.66332 -21.8...</td>
-      <td>0.000681</td>
-      <td>0.154431</td>
-      <td>Cambissolos Háplicos</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>16</td>
-      <td>35.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LAd4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>47949.903698</td>
-      <td>3.653670e+07</td>
-      <td>POLYGON ((-43.65644 -21.5982, -43.65634 -21.59...</td>
-      <td>36.536702</td>
-      <td>47.949904</td>
-      <td>Latossolos Amarelos</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>17</td>
-      <td>35.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LAd4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>7517.053715</td>
-      <td>1.369124e+06</td>
-      <td>POLYGON ((-43.53166 -21.62054, -43.53253 -21.6...</td>
-      <td>1.369124</td>
-      <td>7.517054</td>
-      <td>Latossolos Amarelos</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>18</td>
-      <td>35.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LAd4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3403.809546</td>
-      <td>4.047155e+05</td>
-      <td>POLYGON ((-43.56831 -21.61591, -43.56796 -21.6...</td>
-      <td>0.404716</td>
-      <td>3.403810</td>
-      <td>Latossolos Amarelos</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>19</td>
-      <td>25.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>CHd4</td>
-      <td>1</td>
-      <td>3</td>
-      <td>2282.634129</td>
-      <td>1.085028e+05</td>
-      <td>POLYGON ((-43.64719 -21.83002, -43.64717 -21.8...</td>
-      <td>0.108503</td>
-      <td>2.282634</td>
-      <td>Cambissolos Húmicos</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>20</td>
-      <td>47.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LVAd58</td>
-      <td>1</td>
-      <td>6</td>
-      <td>220521.989738</td>
-      <td>1.941504e+08</td>
-      <td>POLYGON ((-43.46723 -21.62497, -43.4657 -21.62...</td>
-      <td>194.150398</td>
-      <td>220.521990</td>
-      <td>Latossolos Vermelho-Amarelos</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>21</td>
-      <td>47.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LVAd58</td>
-      <td>1</td>
-      <td>6</td>
-      <td>113923.683562</td>
-      <td>9.325729e+07</td>
-      <td>POLYGON ((-43.40851 -21.81091, -43.40869 -21.8...</td>
-      <td>93.257287</td>
-      <td>113.923684</td>
-      <td>Latossolos Vermelho-Amarelos</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>22</td>
-      <td>47.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LVAd58</td>
-      <td>1</td>
-      <td>6</td>
-      <td>343.701576</td>
-      <td>2.483750e+03</td>
-      <td>POLYGON ((-43.37488 -21.89544, -43.37489 -21.8...</td>
-      <td>0.002484</td>
-      <td>0.343702</td>
-      <td>Latossolos Vermelho-Amarelos</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>23</td>
-      <td>20.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LVAd68</td>
-      <td>1</td>
-      <td>6</td>
-      <td>40798.271707</td>
-      <td>3.550050e+07</td>
-      <td>POLYGON ((-43.49553 -21.9255, -43.4955 -21.925...</td>
-      <td>35.500500</td>
-      <td>40.798272</td>
-      <td>Latossolos Vermelho-Amarelos</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>24</td>
-      <td>23.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LVAd73</td>
-      <td>1</td>
-      <td>7</td>
-      <td>11441.235886</td>
-      <td>2.057128e+06</td>
-      <td>POLYGON ((-43.40401 -21.87563, -43.40383 -21.8...</td>
-      <td>2.057128</td>
-      <td>11.441236</td>
-      <td>Latossolos Vermelho-Amarelos</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>25</td>
-      <td>23.0</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>0</td>
-      <td>None</td>
-      <td>...</td>
-      <td>Fase Floresta Tropical Subperenifólia</td>
-      <td>LVAd73</td>
-      <td>1</td>
-      <td>7</td>
-      <td>5296.910900</td>
-      <td>7.293902e+05</td>
-      <td>POLYGON ((-43.37642 -21.89303, -43.37649 -21.8...</td>
-      <td>0.729390</td>
-      <td>5.296911</td>
-      <td>Latossolos Vermelho-Amarelos</td>
     </tr>
   </tbody>
 </table>
-<p>25 rows × 59 columns</p>
+<p>5 rows × 56 columns</p>
 </div>
 
 
 
 ### Tratamento de dados
 
-Para reaproveitamento do código utilizado para análise geomorfológica, renomeamos a coluna "UM_SEQ" e adicionamos a coluna "CLASSE", com uso de dicionário de mapeamento código -> classe.
+Renomeamos a coluna "UM_SEQ" e adicionamos a coluna "CLASSE", com uso de dicionário de mapeamento código -> classe.
 
 
 ```python
-gdf = gdf.rename(columns={'UM_SEQ': 'TIPO'})
+gdf = gdf.rename(columns={'UM_SEQ': 'CODIGO'})
 
 # Dicionário de mapeamento código -> classe
 mapeamento_classes = {
@@ -764,7 +277,7 @@ mapeamento_classes = {
 }
 
 # Criar a coluna CLASSE usando o mapeamento
-gdf['CLASSE'] = gdf['TIPO'].map(mapeamento_classes)
+gdf['CLASSE'] = gdf['CODIGO'].map(mapeamento_classes)
 ```
 
 ### Analisamos as classes geomorfológicas
@@ -779,29 +292,47 @@ print("="*85)
 # Calcular métricas adicionais
 gdf['AREA_KM2'] = gdf['SHAPE_Area'] / 1_000_000
 gdf['PERIM_KM'] = gdf['SHAPE_Leng'] / 1000
-#gdf['COMPACIDADE'] = (2 * np.sqrt(np.pi * gdf['AREA_KM2'])) / gdf['PERIM_KM'] * 100
-#gdf['DENSIDADE'] = gdf['PERIM_KM'] / np.sqrt(gdf['AREA_KM2'])
 
-# Ordenar por área
-gdf_sorted = gdf.sort_values('AREA_KM2', ascending=False)
+# AGRUPAR POR CLASSE DE SOLO (usando TIPO e CLASSE)
+gdf_grouped = gdf.groupby(['CODIGO', 'CLASSE'], as_index=False).agg({
+    'AREA_KM2': 'sum',
+    'PERIM_KM': 'sum'
+})
+
+# Calcular percentual de área
+total_area = gdf_grouped['AREA_KM2'].sum()
+gdf_grouped['AREA_PERC'] = (gdf_grouped['AREA_KM2'] / total_area * 100).round(2)
+
+# Ordenar por área (decrescente)
+gdf_sorted = gdf_grouped.sort_values('AREA_KM2', ascending=False)
 
 # Criar tabela formatada
-print(f"\n{'TIPO':<15} {'CLASSE':<30} {'ÁREA (km²)':>12} {'PERÍMETRO (km)':>15}")
+print(f"\n{'CODIGO':<8} {'CLASSE':<35} {'ÁREA (km²)':>12} {'% ÁREA':>8} {'PERÍMETRO (km)':>15}")
 print("-"*85)
 
 for idx, row in gdf_sorted.iterrows():
-    tipo = row['TIPO'][:14]  # Limitar tamanho
-    classe = row['CLASSE'][:29]  # Limitar tamanho
-    print(f"{tipo:<15} {classe:<30} {row['AREA_KM2']:>11.4f} {row['PERIM_KM']:>14.2f}")
+    tipo = row['CODIGO'][:7]  # Limitar tamanho
+    classe = row['CLASSE'][:34]  # Limitar tamanho
+    print(f"{tipo:<8} {classe:<35} {row['AREA_KM2']:>11.4f} {row['AREA_PERC']:>7.2f}% {row['PERIM_KM']:>14.2f}")
 
 print("-"*85)
 
 # Estatísticas resumo
 print(f"\nRESUMO:")
-print(f"  Área total: {gdf['AREA_KM2'].sum():.4f} km²")
-print(f"  Perímetro total: {gdf['PERIM_KM'].sum():.2f} km")
-print(f"  Maior área: {gdf_sorted.iloc[0]['TIPO']} ({gdf_sorted.iloc[0]['CLASSE']}) - {gdf_sorted.iloc[0]['AREA_KM2']:.4f} km²")
-print(f"  Menor área: {gdf_sorted.iloc[-1]['TIPO']} ({gdf_sorted.iloc[-1]['CLASSE']}) - {gdf_sorted.iloc[-1]['AREA_KM2']:.4f} km²")
+print(f"  Área total: {total_area:.4f} km²")
+print(f"  Perímetro total: {gdf_grouped['PERIM_KM'].sum():.2f} km")
+print(f"  Número de classes: {len(gdf_grouped)}")
+
+# Destacar a classe predominante
+classe_predominante = gdf_sorted.iloc[0]
+print(f"\nCLASSE PREDOMINANTE:")
+print(f"  {classe_predominante['CODIGO']} - {classe_predominante['CLASSE']}")
+print(f"  Área: {classe_predominante['AREA_KM2']:.4f} km² ({classe_predominante['AREA_PERC']:.2f}% do total)")
+
+# Listar todas as classes com suas áreas
+print(f"\nDETALHAMENTO POR CLASSE:")
+for idx, row in gdf_sorted.iterrows():
+    print(f"  {row['CODIGO']:<6} - {row['CLASSE']:<35} {row['AREA_KM2']:>10.4f} km² ({row['AREA_PERC']:>5.2f}%)")
 ```
 
     
@@ -809,40 +340,34 @@ print(f"  Menor área: {gdf_sorted.iloc[-1]['TIPO']} ({gdf_sorted.iloc[-1]['CLAS
     TABELA COMPARATIVA DAS CLASSES DE SOLO
     =====================================================================================
     
-    TIPO            CLASSE                           ÁREA (km²)  PERÍMETRO (km)
+    CODIGO   CLASSE                                ÁREA (km²)   % ÁREA  PERÍMETRO (km)
     -------------------------------------------------------------------------------------
-    LVAd59          Latossolos Vermelho-Amarelos      723.2797         291.11
-    LVAd58          Latossolos Vermelho-Amarelos      194.1504         220.52
-    LAd4            Latossolos Amarelos               121.6135          90.00
-    LAd4            Latossolos Amarelos               120.6889         105.49
-    LVAd58          Latossolos Vermelho-Amarelos       93.2573         113.92
-    CXbd33          Cambissolos Háplicos               41.5411          47.01
-    LAd4            Latossolos Amarelos                36.5367          47.95
-    LVAd68          Latossolos Vermelho-Amarelos       35.5005          40.80
-    LVAd68          Latossolos Vermelho-Amarelos       24.2821          25.36
-    LVAd68          Latossolos Vermelho-Amarelos       18.1046          27.15
-    LVAd68          Latossolos Vermelho-Amarelos       16.0714          45.81
-    LAd4            Latossolos Amarelos                 3.3280           9.81
-    CXbd33          Cambissolos Háplicos                2.9889          11.87
-    LVAd73          Latossolos Vermelho-Amarelos        2.0571          11.44
-    LAd4            Latossolos Amarelos                 1.3691           7.52
-    CHd4            Cambissolos Húmicos                 0.8614          34.88
-    LVAd73          Latossolos Vermelho-Amarelos        0.7294           5.30
-    LAd4            Latossolos Amarelos                 0.4047           3.40
-    CHd4            Cambissolos Húmicos                 0.1085           2.28
-    LAd4            Latossolos Amarelos                 0.0608           1.17
-    LVAd59          Latossolos Vermelho-Amarelos        0.0164           1.19
-    LVAd58          Latossolos Vermelho-Amarelos        0.0025           0.34
-    LVAd59          Latossolos Vermelho-Amarelos        0.0017           0.28
-    LVAd59          Latossolos Vermelho-Amarelos        0.0007           0.16
-    CXbd33          Cambissolos Háplicos                0.0007           0.15
+    LVAd59   Latossolos Vermelho-Amarelos           723.2985   50.34%         292.75
+    LVAd58   Latossolos Vermelho-Amarelos           287.4102   20.00%         334.79
+    LAd4     Latossolos Amarelos                    284.0017   19.76%         265.34
+    LVAd68   Latossolos Vermelho-Amarelos            93.9586    6.54%         139.11
+    CXbd33   Cambissolos Háplicos                    44.5306    3.10%          59.04
+    LVAd73   Latossolos Vermelho-Amarelos             2.7865    0.19%          16.74
+    CHd4     Cambissolos Húmicos                      0.9699    0.07%          37.16
     -------------------------------------------------------------------------------------
     
     RESUMO:
       Área total: 1436.9559 km²
       Perímetro total: 1144.93 km
-      Maior área: LVAd59 (Latossolos Vermelho-Amarelos) - 723.2797 km²
-      Menor área: CXbd33 (Cambissolos Háplicos) - 0.0007 km²
+      Número de classes: 7
+    
+    CLASSE PREDOMINANTE:
+      LVAd59 - Latossolos Vermelho-Amarelos
+      Área: 723.2985 km² (50.34% do total)
+    
+    DETALHAMENTO POR CLASSE:
+      LVAd59 - Latossolos Vermelho-Amarelos          723.2985 km² (50.34%)
+      LVAd58 - Latossolos Vermelho-Amarelos          287.4102 km² (20.00%)
+      LAd4   - Latossolos Amarelos                   284.0017 km² (19.76%)
+      LVAd68 - Latossolos Vermelho-Amarelos           93.9586 km² ( 6.54%)
+      CXbd33 - Cambissolos Háplicos                   44.5306 km² ( 3.10%)
+      LVAd73 - Latossolos Vermelho-Amarelos            2.7865 km² ( 0.19%)
+      CHd4   - Cambissolos Húmicos                     0.9699 km² ( 0.07%)
 
 
 ### Visualizamos os gráficos correspondentes
@@ -851,67 +376,115 @@ print(f"  Menor área: {gdf_sorted.iloc[-1]['TIPO']} ({gdf_sorted.iloc[-1]['CLAS
 ```python
 # Criar figura com 3 subplots
 fig, axes = plt.subplots(1, 3, figsize=(18, 6))
-fig.suptitle('Características dos tipos de solo - Juiz de Fora', 
+fig.suptitle('Características das classes de solo - Juiz de Fora', 
              fontsize=16, fontweight='bold')
 
-# 1. Ranking de áreas
+# 1. Ranking de áreas (usando gdf_grouped ordenado)
 ax1 = axes[0]
-cores_area = plt.cm.viridis(np.linspace(0, 1, len(gdf_sorted)))
-bars1 = ax1.bar(range(len(gdf_sorted)), gdf_sorted['AREA_KM2'], 
+# Ordenar para o ranking
+gdf_area_rank = gdf_grouped.sort_values('AREA_KM2', ascending=False)
+cores_area = plt.cm.viridis(np.linspace(0, 1, len(gdf_area_rank)))
+bars1 = ax1.bar(range(len(gdf_area_rank)), gdf_area_rank['AREA_KM2'], 
                 color=cores_area, edgecolor='black')
-ax1.set_xticks(range(len(gdf_sorted)))
-ax1.set_xticklabels(gdf_sorted['TIPO'], rotation=45, ha='right')
+ax1.set_xticks(range(len(gdf_area_rank)))
+ax1.set_xticklabels(gdf_area_rank['CODIGO'], rotation=45, ha='right')
 ax1.set_ylabel('Área (km²)', fontweight='bold')
 ax1.set_title('Ranking por área', fontweight='bold')
 ax1.grid(True, alpha=0.3, axis='y')
 
 # Adicionar valores
-for i, (bar, area) in enumerate(zip(bars1, gdf_sorted['AREA_KM2'])):
+for i, (bar, row) in enumerate(zip(bars1, gdf_area_rank.itertuples())):
     ax1.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 1,
-             f'{area:.1f}', ha='center', va='bottom', fontweight='bold', fontsize=9)
+             f'{row.AREA_KM2:.1f}', ha='center', va='bottom', 
+             fontweight='bold', fontsize=9)
 
-# 2. Ranking de perímetros
+# 2. Ranking de perímetros (usando gdf_grouped ordenado)
 ax2 = axes[1]
-gdf_sorted_perim = gdf.sort_values('PERIM_KM', ascending=False)
-cores_perim = plt.cm.plasma(np.linspace(0, 1, len(gdf_sorted_perim)))
-bars2 = ax2.bar(range(len(gdf_sorted_perim)), gdf_sorted_perim['PERIM_KM'], 
+gdf_perim_rank = gdf_grouped.sort_values('PERIM_KM', ascending=False)
+cores_perim = plt.cm.plasma(np.linspace(0, 1, len(gdf_perim_rank)))
+bars2 = ax2.bar(range(len(gdf_perim_rank)), gdf_perim_rank['PERIM_KM'], 
                 color=cores_perim, edgecolor='black')
-ax2.set_xticks(range(len(gdf_sorted_perim)))
-ax2.set_xticklabels(gdf_sorted_perim['TIPO'], rotation=45, ha='right')
+ax2.set_xticks(range(len(gdf_perim_rank)))
+ax2.set_xticklabels(gdf_perim_rank['CODIGO'], rotation=45, ha='right')
 ax2.set_ylabel('Perímetro (km)', fontweight='bold')
 ax2.set_title('Ranking por perímetro', fontweight='bold')
 ax2.grid(True, alpha=0.3, axis='y')
 
 # Adicionar valores
-for i, (bar, perim) in enumerate(zip(bars2, gdf_sorted_perim['PERIM_KM'])):
+for i, (bar, row) in enumerate(zip(bars2, gdf_perim_rank.itertuples())):
     ax2.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 5,
-             f'{perim:.1f}', ha='center', va='bottom', fontweight='bold', fontsize=9)
+             f'{row.PERIM_KM:.1f}', ha='center', va='bottom', 
+             fontweight='bold', fontsize=9)
 
-# 3. Gráfico de pizza - proporção de áreas
+# 3. Gráfico de pizza - proporção de áreas (usando gdf_grouped)
 ax3 = axes[2]
-cores_pizza = plt.cm.Set3(np.linspace(0, 1, len(gdf)))
-wedges, texts, autotexts = ax3.pie(gdf['AREA_KM2'], 
-                                   labels=gdf['TIPO'],
-                                   autopct='%1.1f%%',
-                                   colors=cores_pizza,
-                                   startangle=90)
-ax3.set_title('Distribuição da área total', fontweight='bold')
+# Ordenar para melhor visualização (maiores primeiro)
+gdf_pizza = gdf_grouped.sort_values('AREA_KM2', ascending=False)
+cores_pizza = plt.cm.Set3(np.linspace(0, 1, len(gdf_pizza)))
 
-# Ajustar tamanho dos textos do gráfico de pizza
-for text in texts:
-    text.set_fontsize(8)
-for autotext in autotexts:
-    autotext.set_fontsize(8)
-    autotext.set_fontweight('bold')
+# Criar rótulos combinando CODIGO e percentual
+labels = [f"{row.CODIGO}\n({row.AREA_PERC:.1f}%)" for row in gdf_pizza.itertuples()]
+
+wedges, texts, autotexts = ax3.pie(gdf_pizza['AREA_KM2'], 
+                                   labels=labels,
+                                   autopct='',  # Remover autopct padrão
+                                   colors=cores_pizza,
+                                   startangle=90,
+                                   textprops={'fontsize': 9})
+ax3.set_title('Distribuição da área total por classe', fontweight='bold')
+
+# Adicionar legenda com as classes completas
+legend_labels = [f"{row.CODIGO}: {row.CLASSE}" for row in gdf_pizza.itertuples()]
+ax3.legend(wedges, legend_labels, title="Classes de Solo",
+          loc="center left", bbox_to_anchor=(1, 0, 0.5, 1),
+          fontsize=8)
 
 plt.tight_layout()
-#plt.savefig('ranking_morfologia.png', dpi=300, bbox_inches='tight')
+plt.savefig('ranking_classes_solo.png', dpi=300, bbox_inches='tight')
+plt.show()
+
+# Gráfico adicional: Barras empilhadas mostrando composição
+fig2, ax = plt.subplots(figsize=(10, 6))
+
+# Criar barras para cada classe
+categorias = ['Área (km²)']
+x = np.arange(len(categorias))
+bottom = 0
+
+cores_barra = plt.cm.tab10(np.linspace(0, 1, len(gdf_pizza)))
+
+for i, row in enumerate(gdf_pizza.itertuples()):
+    ax.bar(x, row.AREA_KM2, bottom=bottom, 
+           label=f"{row.CODIGO}", color=cores_barra[i],
+           edgecolor='black', linewidth=0.5)
+    # Adicionar texto com percentual
+    if row.AREA_PERC > 3:  # Só mostrar se área significativa
+        ax.text(x[0], bottom + row.AREA_KM2/2, 
+               f'{row.AREA_PERC:.1f}%', 
+               ha='center', va='center', fontweight='bold', color='white')
+    bottom += row.AREA_KM2
+
+ax.set_ylabel('Área (km²)', fontweight='bold')
+ax.set_title('Composição das classes de solo', fontweight='bold')
+ax.set_xticks(x)
+ax.set_xticklabels(categorias)
+ax.legend(title='Classes', bbox_to_anchor=(1.05, 1), loc='upper left')
+ax.grid(True, alpha=0.3, axis='y')
+
+plt.tight_layout()
+plt.savefig('composicao_classes.png', dpi=300, bbox_inches='tight')
 plt.show()
 ```
 
 
     
 ![png](output_24_0.png)
+    
+
+
+
+    
+![png](output_24_1.png)
     
 
 
@@ -1127,16 +700,6 @@ print("Mapa estático salvo como: mapa_solos.png")
 plt.show()
 
 ```
-
-    Mapa salvo como: mapa_solos_jf.html
-    Mapa estático salvo como: mapa_solos.png
-
-
-
-    
-![png](output_26_1.png)
-    
-
 
 **Considerações finais**
 
