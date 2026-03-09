@@ -6,6 +6,11 @@ O **SISURB** - **Sistema Municipal de Informações para o Desenvolvimento Terri
 
 São disponibilizados diversos mapas temáticos, dentre os quais o de solos, que contém a classificação dos solos do município, com a descrição de sete classes diferentes: Cambissolos Húmicos, Cambissolos Háplicos, Latossolos Amarelos, Latossolos Vermelho-Amarelos, Latossolos Vermelho-Amarelos, Latossolos Vermelho-Amarelos, Latossolos Vermelho-Amarelos.
 
+As classes de solo, tratadas como unidades taxonômicas, são representadas por cores distintas. Cada uma dessas classes é identificada por um código alfanumérico que segue a nomenclatura estabelecida pelo *Sistema Brasileiro de Classificação de Solos*(**SiBCS**), desenvolvido e mantido pela **Embrapa**. Essa codificação é composta por letras maiúsculas que indicam a ordem e a subordem do solo, como no exemplo "LV" para Latossolo Vermelho-Amarelo, por letras minúsculas que designam características diagnósticas, como "d" para solos distróficos, e por números que identificam unidades de mapeamento específicas dentro de uma mesma classe taxonômica.
+
+Conforme pode ser observado na Tabela 1 e nas figuras apresentadas, a classe Latossolo Vermelho-Amarelo Distrófico aparece com quatro códigos distintos no mapa original: LVAd58, LVAd59, LVAd68 e LVAd73. Embora todos pertençam à mesma classe taxonômica, esses códigos representam unidades de mapeamento diferentes, que se distinguem por características como textura do solo, fase associada à vegetação original, material de origem, profundidade dos horizontes diagnósticos e localização geográfica em diferentes compartimentos da paisagem. 
+
+
 ### Objetivo
 
 Este projeto tem como objetivo construir o mapa dos solos de Juiz de Fora, a partir dos dados disponibilizados pelo **SISURB**. 
@@ -89,6 +94,19 @@ gdf.iloc[:5]
 
 
 <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -465,13 +483,13 @@ plt.show()
 
 
     
-![png](output_24_0.png)
+![png](output_25_0.png)
     
 
 
 
     
-![png](output_24_1.png)
+![png](output_25_1.png)
     
 
 
@@ -701,5 +719,3 @@ https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1176834/1/Sistema-
 **Referências**
 
 Eduardo, C. C. (2018). *Cartografia Geomorfológica Comparada: aplicações no município de Juiz de Fora(MG) como subsídio ao planejamento*. Dissertação (Mestrado acadêmico) em Geografia - Universidade Federal de Juiz de Fora, Juiz de Fora, 2018. Disponível em: https://repositorio.ufjf.br/jspui/handle/ufjf/6764?locale=pt_BR
-
-Sistema Brasileiro de Classificação de Solos / Humberto Gonçalves dos Santos … [et al.]. – 6. ed., rev. e ampl. − Brasília, DF : Embrapa, 2025. 393 p. : il. color. ; 16 cm x 23 cm. ISBN 978-65-5467-104-0
