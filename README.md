@@ -8,9 +8,6 @@ São disponibilizados diversos mapas temáticos, dentre os quais o de solos, que
 
 As classes de solo, tratadas como unidades taxonômicas, são representadas por cores distintas. Cada uma dessas classes é identificada por um código alfanumérico que segue a nomenclatura estabelecida pelo *Sistema Brasileiro de Classificação de Solos*(**SiBCS**), desenvolvido e mantido pela **Embrapa**. Essa codificação é composta por letras maiúsculas que indicam a ordem e a subordem do solo, como no exemplo "LV" para Latossolo Vermelho-Amarelo, por letras minúsculas que designam características diagnósticas, como "d" para solos distróficos, e por números que identificam unidades de mapeamento específicas dentro de uma mesma classe taxonômica.
 
-Conforme pode ser observado na Tabela 1 e nas figuras apresentadas, a classe Latossolo Vermelho-Amarelo Distrófico aparece com quatro códigos distintos no mapa original: LVAd58, LVAd59, LVAd68 e LVAd73. Embora todos pertençam à mesma classe taxonômica, esses códigos representam unidades de mapeamento diferentes, que se distinguem por características como textura do solo, fase associada à vegetação original, material de origem, profundidade dos horizontes diagnósticos e localização geográfica em diferentes compartimentos da paisagem. 
-
-
 ### Objetivo
 
 Este projeto tem como objetivo construir o mapa dos solos de Juiz de Fora, a partir dos dados disponibilizados pelo **SISURB**. 
@@ -697,7 +694,7 @@ plt.show()
 
 **Considerações finais**
 
-Todo o conhecimento acumulado foi insuficiente para estimular políticas públicas capazes de evitar a tragédia provocada por fortes chuvas em fevereiro de 2026, em Juiz de Fora, que vitimou 65 pessoas e desalojou mais de seis mil moradores.
+Conforme pode ser observado na Tabela 1 e nas figuras apresentadas, a classe Latossolo Vermelho-Amarelo Distrófico aparece com quatro códigos distintos no mapa original: LVAd58, LVAd59, LVAd68 e LVAd73. Embora todos pertençam à mesma classe taxonômica, esses códigos representam unidades de mapeamento diferentes, que se distinguem por características como textura do solo, fase associada à vegetação original, material de origem, profundidade dos horizontes diagnósticos e localização geográfica em diferentes compartimentos da paisagem.
 
 **Fontes**:
 
