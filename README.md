@@ -219,7 +219,7 @@ gdf.iloc[:4]
     </tr>
   </tbody>
 </table>
-<p>25 rows × 59 columns</p>
+<p>4 rows × 59 columns</p>
 </div>
 
 
