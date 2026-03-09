@@ -493,7 +493,7 @@ plt.show()
     
 
 
-### Criamos o mapa estático
+### Criamos os mapas estático e interativo
 
 
 ```python
