@@ -329,7 +329,7 @@ for idx, row in gdf_sorted.iterrows():
 
     
     =====================================================================================
-    TABELA COMPARATIVA DAS CLASSES DE SOLO
+    Taela 1:  TABELA COMPARATIVA DAS CLASSES DE SOLO
     =====================================================================================
     
     CODIGO   CLASSE                                ÁREA (km²)   % ÁREA  PERÍMETRO (km)
