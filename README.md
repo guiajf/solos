@@ -2,7 +2,7 @@
 
 ### Introdução
 
-Contimuamos a explorar o acervo de mapas temáticos disponibilizados pelo SISURB - Sistema Municipal de Informações para o Desenvolvimento Territorial, que desenvolve e organiza dados para mapeamento do território de Juiz de Fora, em seus aspectos topográficos, geológicos e geográficos.
+Continuamos a explorar o acervo de mapas temáticos disponibilizados pelo SISURB - Sistema Municipal de Informações para o Desenvolvimento Territorial, que desenvolve e organiza dados para mapeamento do território de Juiz de Fora, em seus aspectos topográficos, geológicos e geográficos.
 
 Agora vamos baixar e analisar o shapefile que contém os dados referentes às diferentes classes de solos do município: CHd4 - Cambissolos Húmicos, CXbd33 - Cambissolos Háplicos, LAd4 -  Latossolos Amarelos, LVAd58 - Latossolos Vermelho-Amarelos, LVAd59 - Latossolos Vermelho-Amarelos, LVAd68 - Latossolos Vermelho-Amarelos - LVAd73 - Latossolos Vermelho.
 
